@@ -380,8 +380,8 @@ parse_general_char($u, [D0, D1, D2, D3 | Rest]) ->
 	    case parse_codepoint(Rest) of
 		{low_surrogate_pair, Codepoint2, Rest1} ->
 		    [FinalCodepoint] =
-			xmerl_ucs:from_utf16be(<<Codepoint:16/big-unsigned-integer,
-						Codepoint2:16/big-unsigned-integer>>),
+			xmerl_ucs:from_utf16be(<<Codepoint:16/integer,
+						Codepoint2:16/integer>>),
 		    {ok, FinalCodepoint, Rest1};
 		_ ->
 		    exit(incorrect_usage_of_surrogate_pair)

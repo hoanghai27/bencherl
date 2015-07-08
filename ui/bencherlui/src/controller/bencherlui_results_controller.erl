@@ -134,7 +134,7 @@ measurement_files('GET', []) ->
                         BenchmarkName, 
                         "/measurements"]),
     List =
-        [list_to_binary(lists:sublist(Name, length(Name) - length(".time"))) 
+        [list_to_binary(lists:sublist(Name, length(Name) - 5)) 
          || Name <- measurement_file_list(MeasurementDir)], 
     {output, rfc4627:encode(List)}.
 
